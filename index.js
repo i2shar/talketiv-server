@@ -15,7 +15,7 @@ app.get('/chat', function(req, res){
 });
 
 app.get('/announce/:key', function (req, res) {
-    var file = req.params.key + '.' + config.messages.extension;
+    var file = req.params.key;
 
     io.emit('playSound', config.sounds.default);
     io.emit('playMessage', file);
