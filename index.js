@@ -54,7 +54,9 @@ io.on('connection', function(socket){
     var socketId = socket.id;
     var clientIp = socket.request.connection.remoteAddress;
 
-    console.log("client connected: " + socketId + "[" + clientIp + "]");
+    var client = socketId + "[" + clientIp + "]";
+    console.log("client connected: " + client);
+    io.emit('chat message', 'Welcome, ' + client);
     socket.on('chat message', function(msg){
         io.emit('chat message', socketId + ": " + msg);
     });
